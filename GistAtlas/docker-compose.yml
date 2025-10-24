@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    container_name: "gist_atlas_postgres_db"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=gist_atlasDB
+    ports:
+      - '5431:5432'
+    volumes:
+      - gist_atlasDB:/var/lib/postgresql/data
+volumes:
+  gist_atlasDB:
